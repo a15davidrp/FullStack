@@ -1,0 +1,23 @@
+<h2 class="text-center">{{title}}</h2>
+
+<form class="col" #formGames="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <p>
+      <input required class="form-control" type="text" id="nombre" name="nombre" #nombre="ngModel"
+        [(ngModel)]="game.nombre" placeholder="nombre del juego" />
+      <small class="text-danger form-text" *ngIf="nombre.touched && !nombre.valid">El valor del nombre del juego no es
+        válido</small>
+    </p>
+  </div>
+  <div class="form-group">
+    <label for="precio">Precio:</label>
+    <p>
+      <input required maxlength="7" pattern="[0-9. ]*" class="form-control" type="text" id="precio" name="precio"
+        #precio="ngModel" [(ngModel)]="game.precio" placeholder="precio del juego" />
+      <small class="text-danger form-text" *ngIf="precio.touched && !precio.valid">El valor del precio del juego no es
+        válido</small>
+    </p>
+  </div>
+  <button [disabled]="!formGames.valid" type="submit" class="btn btn-primary">Enviar</button>
+</form>

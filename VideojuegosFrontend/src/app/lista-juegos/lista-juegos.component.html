@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>
+    Listado de Juegos
+  </h1>
+  <div *ngFor="let game of games;">
+    <div class="card mb-3" style="width: 20rem;">
+      <div class="card-body">
+        <h4 class="card-title">{{game.nombre}}</h4>
+        <p class="card-text">Precio: {{game.precio}}</p>
+        <a [routerLink]="['/game',game._id]" class="btn btn-primary">Ver detalles</a>
+        <a class="btn btn-primary" [routerLink]="['/edit-game',game._id]"> Editar </a>
+        <a (click)="borrarJuego(game._id)" class="btn btn-primary">Borrar</a>
+      </div>
+    </div>
+  </div>
+</div>
